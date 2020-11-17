@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
   validates :customer_id, :status, :created_at, presence:true
-  has_one :customer
+  belongs_to :customer
+  has_many :ProductOrders
 end
