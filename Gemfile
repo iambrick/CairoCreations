@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#ActiveAdmin
+gem 'activeadmin' #Admin dashboard as a Rails engine
+gem 'devise'  #Username and Password authentication
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
