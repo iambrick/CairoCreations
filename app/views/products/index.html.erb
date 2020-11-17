@@ -1,0 +1,7 @@
+<h1>Products#index</h1>
+<ul>
+  <% @Products.each do |p| %>
+    <li><%= link_to p.name, p %></li>
+  <% end %>
+</ul>
+<p>Find me in app/views/products/index.html.erb</p>
