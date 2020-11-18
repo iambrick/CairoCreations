@@ -10,4 +10,12 @@
       <% end %>
     </ul>
   <% end %>
+  <% if @descResults.present? %>
+    <h2>Descriptions:</h2>
+    <ul>
+      <% @descResults.each do |result| %>
+      <li><%= link_to result.description, result%></li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
