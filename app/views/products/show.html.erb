@@ -1,6 +1,6 @@
 <h1><%= @Product.name %></h1>
 <% if @Product.image.present? %>
-  <%= image_tag @Product.image %>
+  <%= image_tag @Product.image.variant(resize_to_limit: [200,200]) %>
 <% end %>
 <p><%= @Product.description %></p>
 <p>In Stock: <%= @Product.quantity %></p>
