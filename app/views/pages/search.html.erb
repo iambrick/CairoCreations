@@ -1,0 +1,13 @@
+<h1>Search results</h1>
+<% if @allEmpty == true %>
+  <h3>Your search returned no results.</h3>
+<% else %>
+  <h2>Products:</h2>
+  <% if @nameResults.present? %>
+    <ul>
+      <% @nameResults.each do |result| %>
+      <li><%= link_to result.name, result %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
