@@ -1,4 +1,7 @@
 <h1><%= @Product.name %></h1>
+<% if @Product.image.present? %>
+  <%= image_tag @Product.image %>
+<% end %>
 <p><%= @Product.description %></p>
 <p>In Stock: <%= @Product.quantity %></p>
 <p>Price: $<%=@Product.price%></p>
