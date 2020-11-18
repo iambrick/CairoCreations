@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 #ActiveAdmin
 gem 'activeadmin' #Admin dashboard as a Rails engine
 gem 'devise'  #Username and Password authentication
+gem 'image_processing' #Image resizing gem
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
