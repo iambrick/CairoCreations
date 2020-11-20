@@ -12,6 +12,9 @@ ActiveAdmin.register Product do
     f.inputs do
       f.input :image, as: :file
     end
+    f.input :categories, :as => :check_boxes do |c|
+      magically_show c.name
+    end
     f.actions
   end
   #
