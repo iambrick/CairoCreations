@@ -5,15 +5,16 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :quantity, :price, :description, :image
+  #try adding categories: []
+  permit_params :name, :quantity, :price, :description, :image, product_categories_attributes: [:id, :category_id, :product_id, :_destroy]
   form do |f|
     f.semantic_errors
     f.inputs
     f.inputs do
       f.input :image, as: :file
     end
-    f.input :categories, :as => :check_boxes do |c|
-      magically_show c.name
+    f.has_many :product_categories, allow_destroy: true do |c|
+      c.input :category
     end
     f.actions
   end
