@@ -3,5 +3,6 @@
   <% @Products.each do |p| %>
     <li><%= link_to p.name, p %></li>
   <% end %>
+  <%= paginate @Products %>
 </ul>
 <p>Find me in app/views/products/index.html.erb</p>
