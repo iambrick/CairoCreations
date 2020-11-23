@@ -5,5 +5,11 @@
 <p><%= @Product.description %></p>
 <p>In Stock: <%= @Product.quantity %></p>
 <p>Price: $<%=@Product.price%></p>
+<p><strong>Categories: </strong></p>
+<ul>
+  <% @Product.categories.each do |pc| %>
+    <li><%= link_to pc.name, pc %></li>
+  <%end%>
+</ul>
 
 <p>Find me in app/views/products/show.html.erb</p>
