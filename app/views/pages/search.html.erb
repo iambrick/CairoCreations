@@ -1,9 +1,12 @@
 <h1>Search results</h1>
-<%= search_form_for @q, url: "../search" do |f| %>
+<%= search_form_for @q, url: "/search" do |f| %>
       <%= f.label :name_or_description_cont %>
       <%= f.search_field :name_cont %>
       <%= f.submit "search" %>
-<% end %>
+
+      <%= f.label :categories_name_eq, "Category" %>
+      <%= f.select :categories_name_eq, options_from_collection_for_select(Category.all, :name, :name, @q.categories_name_eq), { :include_blank => true }%>
+      <% end %>
 <% if @products.present? %>
   <h3>Products:</h3>
   <ul>
