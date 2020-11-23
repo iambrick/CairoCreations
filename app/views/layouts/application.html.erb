@@ -9,6 +9,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
+  <%= link_to "Trouble finding something?", "search"%>
+    <!--
     <%= form_tag(search_page_path, :method => "get",
     class: 'navbar-form navbar-left') do %>
   <div class="input-group">
@@ -16,7 +18,7 @@
     <div class="input-group-btn">
       <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
     </div>
-  </div>
+  </div> -->
 <% end %>
   </header>
   <body>

@@ -1,5 +1,22 @@
 <h1>Search results</h1>
-<% if @allEmpty == true %>
+<%= search_form_for @q, url: "../search" do |f| %>
+      <%= f.label :name_or_description_cont %>
+      <%= f.search_field :name_cont %>
+      <%= f.submit "search" %>
+<% end %>
+<% if @products.present? %>
+  <h3>Products:</h3>
+  <ul>
+    <% @products.each do |p| %>
+    <li><%= link_to p.name, p %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+
+<!-- <% if @allEmpty == true %>
   <h3>Your search returned no results.</h3>
 <% else %>
   <h2>Products:</h2>
@@ -18,4 +35,4 @@
       <% end %>
     </ul>
   <% end %>
-<% end %>
+<% end %> -->
