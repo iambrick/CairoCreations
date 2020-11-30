@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
+  resources :cart, only: [:create, :destroy]
 
   root to: 'products#index'
   get '/search' => 'pages#search', :as => 'search_page'
