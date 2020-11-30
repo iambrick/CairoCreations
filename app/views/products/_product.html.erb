@@ -1,16 +1,25 @@
 <div class="column">
 <div class="card">
   <div class="card-content">
-    <p class="title"><%= link_to product.name, product %></p>
+    <p class="title">
+      <% if show_link %>
+        <%= link_to product.name, product %>
+      <% else %>
+        <%= product.name %>
+      <% end %>
+    </p>
     <% if product.image.present? %>
       <%= image_tag product.image.variant(resize_to_limit: [200,200]) %>
     <% end %>
     <p><%= product.description %></p>
     <p>$<%= product.price %></p>
+    <p>In stock: <%= product.quantity %></p>
   </div>
   <footer class="card-footer">
-    <% product.categories.each do |pc| %>
-      <p class="card-footer-item"><%= link_to pc.name, pc %></p>
+    <% if !show_link %>
+      <% product.categories.each do |pc| %>
+        <p class="card-footer-item"><%= link_to pc.name, pc %></p>
+      <% end %>
     <% end %>
   </footer>
 </div>
