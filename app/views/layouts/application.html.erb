@@ -20,5 +20,24 @@
       <%= yield %>
     </div>
   </section>
+  <footer class="footer">
+    <details>
+      <summary>
+        Cart
+        <% if cart.present? %>
+          <sup><%= cart.size %></sup>
+        <% end %>
+      </summary>
+      <% if cart.present? %>
+        <ul>
+          <% cart.each do |pr| %>
+            <li><%= pr.name %> <%= link_to 'x', cart_path(pr), method: :delete %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No items in your cart.</p>
+      <% end %>
+    </details>
+  </footer>
   </body>
 </html>
