@@ -12,8 +12,12 @@
       <%= image_tag product.image.variant(resize_to_limit: [200,200]) %>
     <% end %>
     <p><%= product.description %></p>
-    <p>$<%= product.price %></p>
+    <p><%= number_to_currency product.price %></p>
     <p>In stock: <%= product.quantity %></p>
+    <%= form_with url: cart_index_path do %>
+      <%= hidden_field_tag(:id, product.id) %>
+      <%= button_tag 'Add to Cart'%>
+    <% end %>
   </div>
   <footer class="card-footer">
     <% if !show_link %>
