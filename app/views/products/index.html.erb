@@ -1,6 +1,6 @@
 <div class="columns is-multiline">
   <%= render partial: 'product', collection: @products, locals: { show_link: true } %>
-  <div class="column">
+  <div class="column is-full">
   <%= paginate @products %>
   </div>
 </div>
