@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
 
+  root to: 'products#index'
   get '/search' => 'pages#search', :as => 'search_page'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
