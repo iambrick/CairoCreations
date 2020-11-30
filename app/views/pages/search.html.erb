@@ -1,4 +1,3 @@
-<h1>Search results</h1>
 <%= search_form_for @q, url: "/search" do |f| %>
       <%= f.label :name_or_description_cont %>
       <%= f.search_field :name_or_description_cont %>
@@ -8,34 +7,10 @@
       <%= f.select :categories_name_eq, options_from_collection_for_select(Category.all, :name, :name, @q.categories_name_eq), { :include_blank => true }%>
       <% end %>
 <% if @products.present? %>
-  <h3>Products:</h3>
-  <ul>
-    <% @products.each do |p| %>
-    <li><%= link_to p.name, p %></li>
-    <% end %>
-  </ul>
+  <h1 class="title is-3">Products:</h1>
+  <div class="columns is-multiline">
+  <%= render partial: 'products/product', collection: @products, locals: { show_link: true } %>
+  <div class="column">
+  </div>
+</div>
 <% end %>
-
-
-
-
-<!-- <% if @allEmpty == true %>
-  <h3>Your search returned no results.</h3>
-<% else %>
-  <h2>Products:</h2>
-  <% if @nameResults.present? %>
-    <ul>
-      <% @nameResults.each do |result| %>
-      <li><%= link_to result.name, result %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <% if @descResults.present? %>
-    <h2>Descriptions:</h2>
-    <ul>
-      <% @descResults.each do |result| %>
-      <li><%= link_to result.description, result%></li>
-      <% end %>
-    </ul>
-  <% end %>
-<% end %> -->
