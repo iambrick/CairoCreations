@@ -34,35 +34,23 @@
             </div>
           </div>
           <div class="navbar-end">
-
+            <% if customer_signed_in? %>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <p class="navbar-link"> <%= current_customer.email %></p>
+                <div class="navbar-dropdown">
+                  <p class="navbar-item"><%= link_to 'Edit Profile', edit_customer_registration_path %></p>
+                  <p class="navbar-item"><%= link_to 'Logout', destroy_customer_session_path, method: :delete %></p>
+                </div>
+              <% else %>
+                <p class="navbar-item"><%= link_to "Sign up", new_customer_registration_path %></p>
+                <p class="navbar-item"><%= link_to "Login", new_customer_session_path %></p>
+              <% end %>
+              </div>
           </div>
         </div>
       </nav>
-      <header>
-        <h1 class="title is-1"><%= link_to 'Cairo Creations', root_path %></h1>
-        <%= link_to "Trouble finding something?", "/search"%>
-      </header>
       <%= yield %>
     </div>
   </section>
-  <footer class="footer">
-    <details>
-      <summary>
-        Cart
-        <% if cart.present? %>
-          <sup><%= cart.size %></sup>
-        <% end %>
-      </summary>
-      <% if cart.present? %>
-        <ul>
-          <% cart.each do |pr| %>
-            <li><%= pr.name %> <%= link_to 'x', cart_path(pr), method: :delete %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        <p>No items in your cart.</p>
-      <% end %>
-    </details>
-  </footer>
   </body>
 </html>
