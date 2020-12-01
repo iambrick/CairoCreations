@@ -24,5 +24,7 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
       quantity: 10,
       price: Faker::Commerce.price
     )
+    image = URI.open("https://source.unsplash.com/600x600/?#{product.name}")
+    product.image.attach(io: image, filename: "m-#{product.name}.jpg")
   end
 end
