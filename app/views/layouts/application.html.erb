@@ -13,6 +13,31 @@
   <body>
   <section class="section">
     <div class="container">
+      <nav role="navigation" aria-label="main navigation" class="navbar is-fixed-top">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <p class="navbar-item"><%= link_to "Cairo Creations", root_path %></p>
+            <p class="navbar-item"><%= link_to "Trouble finding something?", "/search" %></p>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Cart</a>
+              <% if cart.present? %>
+              <div class="navbar-dropdown">
+                <% cart.each do |pr| %>
+                <p class="navbar-item"><%= pr.name %> <%= link_to '   X', cart_path(pr), method: :delete %></p>
+                <% end %>
+              </div>
+              <% else %>
+              <div class="navbar-dropdown">
+                <p class="navbar-item">Your cart is empty.</p>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="navbar-end">
+
+          </div>
+        </div>
+      </nav>
       <header>
         <h1 class="title is-1"><%= link_to 'Cairo Creations', root_path %></h1>
         <%= link_to "Trouble finding something?", "/search"%>
