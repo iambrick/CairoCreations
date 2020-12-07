@@ -28,6 +28,7 @@ gem 'ransack' #Advanced searches
 gem 'kaminari' #Pagination
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master' #Faker
 gem 'google-cloud-storage', '~> 1.11', require: false
+gem 'stripe'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
