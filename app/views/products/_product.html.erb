@@ -9,14 +9,14 @@
       <% end %>
     </p>
     <% if product.image.present? %>
-      <%= image_tag product.image.variant(resize_to_limit: [200,200]) %>
+      <%= image_tag product.image.variant(resize_to_limit: [200,200]), alt: "Product image" %>
     <% end %>
     <p><%= product.description %></p>
     <p><%= number_to_currency product.price %></p>
     <p>In stock: <%= product.quantity %></p>
     <% if !cart.include?(product) %>
       <%= form_with url: cart_index_path do %>
-        <%= hidden_field_tag(:id, product.id) %>
+        <%= hidden_field_tag :id, product.id %>
         <%= button_tag 'Add to Cart'%>
       <% end %>
     <% else %>
