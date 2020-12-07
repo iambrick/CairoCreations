@@ -26,6 +26,13 @@
                 <% cart.each do |pr| %>
                 <p class="navbar-item"><%= pr.name %> <%= link_to '   X', cart_path(pr), method: :delete %></p>
                 <% end %>
+                <% if customer_signed_in? %>
+                <%= form_with url: checkout_create_path, remote: true do %>
+                  <%= button_tag 'Checkout' %>
+                <% end %>
+                <% else %>
+                  <p class="navbar-item">Sign in to checkout.</p>
+                <% end %>
               </div>
               <% else %>
               <div class="navbar-dropdown">
