@@ -4,5 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :password, presence:true
+  validates :address, presence:true
+  has_many :orders
   belongs_to :province
 end
