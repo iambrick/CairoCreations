@@ -65,3 +65,9 @@ Rails/HasAndBelongsToMany:
 
 Metrics/AbcSize:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
